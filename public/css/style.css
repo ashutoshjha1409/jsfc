@@ -1,0 +1,46 @@
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center-container {
+  position: relative;
+}
+
+.hide-option{
+	display: inline-block;
+	float: right;
+	cursor: pointer;
+}
+
+.card{
+	border: 1px solid #2980B9  ;
+	box-shadow: 1px 1px 1px #2980B9  ;
+	margin: 5px 0;
+	padding: 10px 20px;
+	background-color: #fff;
+}
+
+.card-header{
+	text-align: center;
+	border-bottom: 1px solid #2980B9;
+	font-size: 18px;
+}
+.card-footer{
+	border-top: 1px solid #2980B9;
+}
+
+.float-right{
+	float: right;
+}
+
+.table{
+	overflow: auto;
+	background-color: #fff;
+}
+
+.col-md-10 .panel-body{
+	font-size: 17px;
+}
