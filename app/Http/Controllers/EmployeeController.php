@@ -38,6 +38,9 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        if (!$request->name || !$request->email){
+            return "false";
+        }
         $data = Employee::create(['name' => $request->name, 'email' => $request->email, 'location' => $request->location, 'designation' => $request->designation]);
 
         $url = '/employee/'.$data->id.'/salary/add';

@@ -163,7 +163,8 @@ class SalaryController extends Controller
         $diff = Salary::where("salaries.emp_id", "=", $request->emp_id)
                 ->where('salaries.year', '=', $request->year)
                 ->join('pay_drawn', 'salaries.month', '=', 'pay_drawn.month')
-                ->select('salaries.emp_id as emp_id', 'salaries.year', 'salaries.month', 'salaries.net_pay as admissable_pay', 'pay_drawn.net_pay as pay_drawn')
+                ->where('pay_drawn.year', '=', $request->year)
+                ->select('salaries.emp_id as emp_id', 'salaries.year', 'salaries.month', 'salaries.net_pay as admissable_pay', 'salaries.deductions as ap_deductions', 'pay_drawn.net_pay as pay_drawn', 'pay_drawn.deductions as pd_deductions')
                 ->get();
 
         $data->salary = $emp->salaryPerYear($request->year);

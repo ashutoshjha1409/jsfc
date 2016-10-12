@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('/layouts/navigation')
 @section('content')
 <div class="container">
     <div class="row">
@@ -112,7 +112,7 @@
                                             </td>
                                             <td width="80px">
                                                 <div class="input-group">
-                                                  <input type="text" class="form-control" placeholder="D.A" aria-describedby="sizing-addon2" name="da" value="0">
+                                                  <input type="text" class="form-control" placeholder="D.A" aria-describedby="sizing-addon2" name="da" value="" data-month="{{$mon['id']}}">
                                                 </div>
                                             </td>
                                             <td width="80px">
@@ -124,7 +124,7 @@
                                                 </div>
                                             </td>
                                             <td width="50px" style="text-align: 'right'">
-                                                <button type="button" class="btn month-action" data-month="{{$mon['id']}}"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                <button type="button" class="btn btn-primary month-action" data-month="{{$mon['id']}}"><i class="fa fa-check" aria-hidden="true"></i></button>
                                             </td>
                                             <td class="total_pay"></td>
                                             <td class="hra"></td>
@@ -178,7 +178,7 @@
                                             </td>
                                             <td width="80px">
                                                 <div class="input-group">
-                                                  <input type="text" class="form-control" placeholder="D.A" aria-describedby="sizing-addon2" name="da" value="0">
+                                                  <input type="text" class="form-control" placeholder="D.A" aria-describedby="sizing-addon2" name="da" value="" data-month="{{$mon['id']}}">
                                                 </div>
                                             </td>
                                             <td width="80px">
@@ -190,7 +190,7 @@
                                                 </div>
                                             </td>
                                             <td width="50px" style="text-align: 'right'">
-                                                <button type="button" class="btn month-action" data-month="{{$mon['id']}}"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                <button type="button" class="btn btn-primary month-action" data-month="{{$mon['id']}}"><i class="fa fa-check" aria-hidden="true"></i></button>
                                             </td>
                                             <td class="total_pay"></td>
                                             <td class="hra"></td>
@@ -219,11 +219,30 @@
                                 <div class="col-md-3" id="{{ $month['id'] }}_diff">
                                     <div class="card">
                                         <div class="card-header">{{$month['name']}}</div>
-                                        <div class="card-body">
-                                            <p>Admissable pay: <span class="float-right">N.A</span></p>
-                                            <p>Pay Drawn: <span class="float-right">NA</span></p>
+                                        <div class="card-body row">
+                                            <div class="col-md-12">
+                                                <div>Admissable pay: </div>
+                                                <div class="col-md-10 col-md-offset-1 diff_ap_np">
+                                                    <span class="">Net Pay</span>
+                                                    <span class="float-right">N.A</span>
+                                                </div>
+                                                <div class="col-md-10 col-md-offset-1 diff_ap_de">
+                                                    <span class="">Deductions</span>
+                                                    <span class="float-right">N.A</span>
+                                                </div>    
+                                                <div>Pay Drawn: </div>
+                                                <div class="col-md-10 col-md-offset-1 diff_pd_np">
+                                                    <span class="">Net Pay</span>
+                                                    <span class="float-right">N.A</span>
+                                                </div>
+                                                <div class="col-md-10 col-md-offset-1 diff_pd_de">
+                                                    <span class="">Deductions</span>
+                                                    <span class="float-right">N.A</span>
+                                                </div>  
+                                            </div>                                              
                                         </div>
-                                        <div class="card-footer"><b>Net pay: <span class="float-right">NA</span></b></div>
+                                        <div class="card-footer"><b>Difference in pay: <span class="float-right">NA</span></b>
+                                        </div>
                                     </div>
                                 </div>
                         <?php    } ?>

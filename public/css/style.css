@@ -16,8 +16,8 @@
 }
 
 .card{
-	border: 1px solid #2980B9  ;
-	box-shadow: 1px 1px 1px #2980B9  ;
+	border: 1px solid #F05F40  ;
+	box-shadow: 1px 1px 1px #F05F40  ;
 	margin: 5px 0;
 	padding: 10px 20px;
 	background-color: #fff;
@@ -25,11 +25,11 @@
 
 .card-header{
 	text-align: center;
-	border-bottom: 1px solid #2980B9;
+	border-bottom: 1px solid #ee4b28;
 	font-size: 18px;
 }
 .card-footer{
-	border-top: 1px solid #2980B9;
+	border-top: 1px solid #ee4b28;
 }
 
 .float-right{
@@ -43,4 +43,11 @@
 
 .col-md-10 .panel-body{
 	font-size: 17px;
+}
+
+.container{
+	padding-top: 60px;
+}
+.panel-default>.panel-heading{
+	color: #eb3812;
 }

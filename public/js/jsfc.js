@@ -1,5 +1,7 @@
 var JSFC = {
-	pd: {}
+	pd: {},
+	first_six: [1, 2, 3, 4, 5, 6],
+	last_six: [7, 8, 9, 10, 11, 12]
 }
 
 $(function(){
@@ -12,7 +14,6 @@ JSFC.Init = function(){
 	});
 	
 	$('#payByMonth_pd .month-action').click(function(){
-		console.log("hghg");
 		JSFC.pd.addSalary(this);		
 	});
 
@@ -22,6 +23,7 @@ JSFC.Init = function(){
 
 		JSFC.clearAdmissableTable(year);
 		JSFC.clearPayDrawnTable(year);
+		JSFC.clearDifferenceTable();
 		JSFC.fetchStoredSalary(year, empId);
 	})
 	
@@ -29,10 +31,35 @@ JSFC.Init = function(){
 		$(this).closest('.panel').find('form').toggle();
 	})
 
-	// $('#difference_tab').click(function(){
-	// 	console.log("h")
-	// 	JSFC.difference();
-	// })
+	$('#payByMonth input[name="da"]').on('input', function(){
+		var month = $(this).data('month');
+		var value = $(this).val();
+		var exist = JSFC.first_six.includes(month);
+		if (exist){
+			$(JSFC.first_six).each(function(index) {
+				$('#'+this).find('input[name="da"]').val(value);
+			});
+		} else {
+			$(JSFC.last_six).each(function(index) {
+				$('#'+this).find('input[name="da"]').val(value);
+			});
+		}		
+	});
+
+	$('#payByMonth_pd input[name="da"]').on('input', function(){
+		var month = $(this).data('month');
+		var value = $(this).val();
+		var exist = JSFC.first_six.includes(month);
+		if (exist){
+			$(JSFC.first_six).each(function(index) {
+				$('#'+this+'_pd').find('input[name="da"]').val(value);
+			});
+		} else {
+			$(JSFC.last_six).each(function(index) {
+				$('#'+this+'_pd').find('input[name="da"]').val(value);
+			});
+		}		
+	});
 }
 
 // ADMISSABLE TABLE
@@ -78,7 +105,8 @@ JSFC.addSalary = function(that){
 	    },
         success: function(data){
         	var ele = $(el).closest('.month-row');
-        	JSFC.updateSalaryTable(data, ele);      	
+        	//JSFC.updateSalaryTable(data, ele);   
+        	JSFC.fetchStoredSalary(year, empId);    	
         },
         error: function(data){
 
@@ -144,7 +172,8 @@ JSFC.pd.addSalary = function(that){
 	    },
         success: function(data){
         	var ele = $(el).closest('.month-row');
-        	JSFC.pd.updateSalaryTable(data, ele);      	
+        	/*JSFC.pd.updateSalaryTable(data, ele); */
+        	JSFC.fetchStoredSalary(year, empId);   	
         },
         error: function(data){
 
@@ -250,9 +279,22 @@ JSFC.clearPayDrawnTable = function(year){
 	});
 }
 
+JSFC.clearDifferenceTable =  function(){
+	var els = $('#difference .col-md-3');
+	$(els).each(function( index ) {
+		$(this).find('.diff_ap_np span:last-child').html('N.A');
+		$(this).find('.diff_ap_de span:last-child').html('N.A');
+		$(this).find('.diff_pd_np span:last-child').html('N.A');
+		$(this).find('.diff_pd_de span:last-child').html('N.A');
+		$(this).find('.card-footer span').html('N.A');
+	});
+}
+
 JSFC.updateDiffTable = function(data, ele){
 	var diffAmt = data['admissable_pay'] - data['pay_drawn'];
-	ele.find('p:first-child span').html('Rs. '+data['admissable_pay'].toFixed(2));
-	ele.find('p:last-child span').html('(-)Rs. '+data['pay_drawn'].toFixed(2));
+	ele.find('.diff_ap_np span:last-child').html('Rs. '+data['admissable_pay'].toFixed(2));
+	ele.find('.diff_ap_de span:last-child').html('Rs. '+data['ap_deductions'].toFixed(2));
+	ele.find('.diff_pd_np span:last-child').html('(-)Rs. '+data['pay_drawn'].toFixed(2));
+	ele.find('.diff_pd_de span:last-child').html('Rs. '+data['pd_deductions'].toFixed(2));
 	ele.find('.card-footer span').html('Rs. '+diffAmt.toFixed(2));
 }

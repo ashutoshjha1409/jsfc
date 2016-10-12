@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('/layouts/navigation')
 @section('content')
 <div class="container">
     <div class="row">
@@ -22,7 +22,7 @@
                         <input type="text" class="form-control" name="designation" placeholder="Designation">
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button type="submit" class="btn btn-default">Next</button>
+                    <button type="submit" class="btn btn-primary">Next</button>
                 </form>
                 </div>
             </div>
