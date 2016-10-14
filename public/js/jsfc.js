@@ -292,9 +292,9 @@ JSFC.clearDifferenceTable =  function(){
 
 JSFC.updateDiffTable = function(data, ele){
 	var diffAmt = data['admissable_pay'] - data['pay_drawn'];
-	ele.find('.diff_ap_np span:last-child').html('Rs. '+data['admissable_pay'].toFixed(2));
-	ele.find('.diff_ap_de span:last-child').html('Rs. '+data['ap_deductions'].toFixed(2));
-	ele.find('.diff_pd_np span:last-child').html('(-)Rs. '+data['pay_drawn'].toFixed(2));
-	ele.find('.diff_pd_de span:last-child').html('Rs. '+data['pd_deductions'].toFixed(2));
-	ele.find('.card-footer span').html('Rs. '+diffAmt.toFixed(2));
+	ele.find('.diff_ap_np span:last-child').html('Rs. '+data['admissable_pay']);
+	ele.find('.diff_ap_de span:last-child').html('Rs. '+data['ap_deductions']);
+	ele.find('.diff_pd_np span:last-child').html('(-)Rs. '+data['pay_drawn']);
+	ele.find('.diff_pd_de span:last-child').html('Rs. '+data['pd_deductions']);
+	ele.find('.card-footer span').html('Rs. '+diffAmt);
 }
