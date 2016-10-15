@@ -54,7 +54,7 @@ class SalaryController extends Controller
         $hra = 0;
         $hraAmt = 0;
         $area = true;        
-        $totalPay = $bp + ($da * $bp)/100;
+        $totalPay = round($bp + ($da * $bp)/100);
         $epf = 12;
         $med = 300;
         $ca = 0;
@@ -69,7 +69,7 @@ class SalaryController extends Controller
         }
 
         // CALCULATE E.P.F
-        $epfAmt = ($epf * $totalPay)/100;
+        $epfAmt = round(($epf * $totalPay)/100);
 
         // CALUCLATE C.A
         switch ($grade) {
@@ -81,10 +81,10 @@ class SalaryController extends Controller
                 break;            
         }
 
-        $gross = $totalPay + $hraAmt + $epfAmt + $med + $ca;
+        $gross = $totalPay + round($hraAmt) + $epfAmt + $med + round($ca);
 
-        $deductions = $epfAmt * 2;
-        $net = $gross - $deductions;
+        $deductions = round($epfAmt * 2);
+        $net = round($gross - $deductions);
 
         if ($sal) {
             $sal->basic_pay = $bp;

@@ -26,7 +26,7 @@ class PayDrawnController extends Controller
         $hra = 0;
         $hraAmt = 0;
         $area = true;        
-        $totalPay = $bp + ($da * $bp)/100;
+        $totalPay = round($bp + ($da * $bp)/100);
         $epf = 12;
         $med = 100;
         $ca = 0;
@@ -44,12 +44,12 @@ class PayDrawnController extends Controller
         }
 
         // CALCULATE E.P.F
-        $epfAmt = ($epf * $totalPay)/100;
+        $epfAmt = round(($epf * $totalPay)/100);
 
-        $gross = $totalPay + $hraAmt + $epfAmt + $med + $ca + $ir + $ra + $wa;
+        $gross = $totalPay + round($hraAmt) + $epfAmt + $med + $ca + $ir + $ra + $wa;
 
-        $deductions = $epfAmt * 2;
-        $net = $gross - $deductions;
+        $deductions = round($epfAmt * 2);
+        $net = round($gross - $deductions);
 
         if ($sal) {
             $sal->basic_pay = $bp;
