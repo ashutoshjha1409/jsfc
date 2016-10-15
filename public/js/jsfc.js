@@ -46,20 +46,20 @@ JSFC.Init = function(){
 		}		
 	});
 
-	$('#payByMonth_pd input[name="da"]').on('input', function(){
-		var month = $(this).data('month');
-		var value = $(this).val();
-		var exist = JSFC.first_six.includes(month);
-		if (exist){
-			$(JSFC.first_six).each(function(index) {
-				$('#'+this+'_pd').find('input[name="da"]').val(value);
-			});
-		} else {
-			$(JSFC.last_six).each(function(index) {
-				$('#'+this+'_pd').find('input[name="da"]').val(value);
-			});
-		}		
-	});
+	// $('#payByMonth_pd input[name="da"]').on('input', function(){
+	// 	var month = $(this).data('month');
+	// 	var value = $(this).val();
+	// 	var exist = JSFC.first_six.includes(month);
+	// 	if (exist){
+	// 		$(JSFC.first_six).each(function(index) {
+	// 			$('#'+this+'_pd').find('input[name="da"]').val(value);
+	// 		});
+	// 	} else {
+	// 		$(JSFC.last_six).each(function(index) {
+	// 			$('#'+this+'_pd').find('input[name="da"]').val(value);
+	// 		});
+	// 	}		
+	// });
 }
 
 // ADMISSABLE TABLE
@@ -122,7 +122,7 @@ JSFC.updateSalaryTable = function(data, ele){
 	ele.find('.hra').html(data['hra_amt']);
 	ele.find('.epf').html(data['epf_amt']);
 	ele.find('.med').html(data['med']);
-	ele.find('.misc').html(data['misc']);
+	ele.find('.ca').html(data['ca']);
 	ele.find('.gross').html(data['gross']);
 	ele.find('.deductions').html(data['deductions']);
 	ele.find('.net').html(data['net_pay']);
@@ -247,7 +247,7 @@ JSFC.clearAdmissableTable = function(year){
 		$(this).find('.hra').html('');
 		$(this).find('.epf').html('');
 		$(this).find('.med').html('');
-		$(this).find('.misc').html('');
+		$(this).find('.ca').html('');
 		$(this).find('.gross').html('');
 		$(this).find('.deductions').html('');
 		$(this).find('.net').html('');

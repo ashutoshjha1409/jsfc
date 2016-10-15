@@ -48,16 +48,16 @@ class SalaryController extends Controller
         $sal = Salary::where('emp_id', $empId)
                         ->where('year', $year)
                         ->where('month', $month)
-                        ->first();   
-
-        
+                        ->first();
+        $emp = Employee::find($empId);
+        $grade = $emp->grade;
         $hra = 0;
         $hraAmt = 0;
         $area = true;        
         $totalPay = $bp + ($da * $bp)/100;
         $epf = 12;
         $med = 300;
-        $misc = 0;
+        $ca = 0;
         // CALCULATE H.R.A
         if ($areaType == 0) {
             $hra = 10;
@@ -71,7 +71,17 @@ class SalaryController extends Controller
         // CALCULATE E.P.F
         $epfAmt = ($epf * $totalPay)/100;
 
-        $gross = $totalPay + $hraAmt + $epfAmt + $med + $misc;
+        // CALUCLATE C.A
+        switch ($grade) {
+            case '3':
+                $ca = 800 + (800 * $da)/100;
+                break;
+            case '4':
+                $ca = 400 + (400 * $da)/100;
+                break;            
+        }
+
+        $gross = $totalPay + $hraAmt + $epfAmt + $med + $ca;
 
         $deductions = $epfAmt * 2;
         $net = $gross - $deductions;
@@ -101,7 +111,7 @@ class SalaryController extends Controller
                 'epf' => $epf,
                 'epf_amt' => $epfAmt,
                 'med' => $med,
-                'misc' => $misc,
+                'ca' => $ca,
                 'gross' => $gross,
                 'deductions' => $deductions,
                 'net_pay' => $net

@@ -41,7 +41,12 @@ class EmployeeController extends Controller
         if (!$request->name || !$request->email){
             return "false";
         }
-        $data = Employee::create(['name' => $request->name, 'email' => $request->email, 'location' => $request->location, 'designation' => $request->designation]);
+
+        if ($request->grade_selection == "na"){
+            return "false";
+        }
+
+        $data = Employee::create(['name' => $request->name, 'email' => $request->email, 'location' => $request->location, 'designation' => $request->designation, 'grade' => (int)$request->grade_selection]);
 
         $url = '/employee/'.$data->id.'/salary/add';
 

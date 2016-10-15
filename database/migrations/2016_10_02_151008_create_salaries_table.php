@@ -26,7 +26,7 @@ class CreateSalariesTable extends Migration
             $table->double('epf', 15, 2);
             $table->double('epf_amt', 15, 2);
             $table->double('med', 15, 2);
-            $table->double('misc', 15, 2);
+            $table->double('ca', 15, 2);
             $table->double('gross', 15, 2);
             $table->double('deductions', 15, 2);
             $table->double('net_pay', 15, 2);

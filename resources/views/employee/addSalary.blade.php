@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <select id="year_selected" name="year" class="selectpicker" data-toggle="tooltip" title="Select year" data-placement="right">
+                                    <select id="year_selected" name="year" class="form-control" data-toggle="tooltip" title="Select year" data-placement="right">
                                         <option value="na">Select a year</option>
                                         <script type="text/javascript">
                                             var dt = new Date();
@@ -95,7 +95,7 @@
                                         <th>H.R.A</th>
                                         <th>E.P.F</th>
                                         <th>Medical</th>
-                                        <th>Misc</th>
+                                        <th>C.A</th>
                                         <th>Gross</th>
                                         <th>Deductions</th>
                                         <th>Net Pay</th>
@@ -130,7 +130,7 @@
                                             <td class="hra"></td>
                                             <td class="epf"></td>
                                             <td class="med"></td>
-                                            <td class="misc"></td>
+                                            <td class="ca"></td>
                                             <td class="gross"></td>
                                             <td class="deductions"></td>
                                             <td class="net"></td>

@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'EmployeeController@index');
+Route::group(['middleware' => 'web'], function(){
+	Route::auth();
+	Route::get('/home', 'EmployeeController@index');	
+});
+
 Route::get('employee/create', 'EmployeeController@create');
 Route::get('employee/{id}/salary/add', 'EmployeeController@addSalary');
 /*Route::get('employee/{id}/salary/view', 'EmployeeController@viewSalary');*/
@@ -24,5 +28,4 @@ Route::post('salary/add', 'SalaryController@store');
 Route::get('salary/view', 'SalaryController@view');
 Route::post('paydrawn/add', 'PayDrawnController@store');
 
-Route::auth();
 
