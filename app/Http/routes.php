@@ -11,18 +11,21 @@
 |
 */
 
+
+// Route::group(['middleware' => 'web'], function(){
+// 	Route::auth();
+// });
+
+/* ************  Pages **************** */
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::group(['middleware' => 'web'], function(){
-	Route::auth();
-	Route::get('/home', 'EmployeeController@index');	
-});
-
+Route::get('/home', 'EmployeeController@index');	
 Route::get('employee/create', 'EmployeeController@create');
-Route::get('employee/{id}/salary/add', 'EmployeeController@addSalary');
+Route::get('employee/{id}/salary', 'EmployeeController@addSalary');
 /*Route::get('employee/{id}/salary/view', 'EmployeeController@viewSalary');*/
+
+/* ************* API ****************** */
 Route::post('employee/add', 'EmployeeController@store');
 Route::post('salary/add', 'SalaryController@store');
 Route::get('salary/view', 'SalaryController@view');

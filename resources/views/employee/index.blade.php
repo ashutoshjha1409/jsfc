@@ -20,7 +20,7 @@
                                     {{ $emp->name }}
                                 </td>
                                 <td>
-                                    <a href="/employee/{{$emp->id}}/salary/add" class="btn btn-primary">Details</a> 
+                                    <a href="/employee/{{$emp->id}}/salary" class="btn btn-primary">Details</a> 
                                 </td>
                                 <td>
                                     <!-- <a href="/employee/{{$emp->id}}/salary/add" class="btn btn-primary">Details</a>  -->

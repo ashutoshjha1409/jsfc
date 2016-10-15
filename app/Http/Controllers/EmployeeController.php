@@ -48,7 +48,7 @@ class EmployeeController extends Controller
 
         $data = Employee::create(['name' => $request->name, 'email' => $request->email, 'location' => $request->location, 'designation' => $request->designation, 'grade' => (int)$request->grade_selection]);
 
-        $url = '/employee/'.$data->id.'/salary/add';
+        $url = '/employee/'.$data->id.'/salary';
 
         return redirect($url);
     }
