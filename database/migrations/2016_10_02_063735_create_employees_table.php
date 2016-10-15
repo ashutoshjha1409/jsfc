@@ -18,7 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('email')->unique();
             $table->string('location');
             $table->string('designation');
-            $table->integer('grade');
+            $table->string('grade');
             $table->timestamps();
         });
     }

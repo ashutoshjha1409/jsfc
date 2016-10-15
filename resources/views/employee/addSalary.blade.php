@@ -162,6 +162,7 @@
                                         <th>I.R</th>
                                         <th>R/A</th>
                                         <th>W/A</th>
+                                        <th>C/A</th>
                                         <th>Gross</th>
                                         <th>Deductions</th>
                                         <th>Net Pay</th>
@@ -196,10 +197,11 @@
                                             <td class="hra"></td>
                                             <td class="epf"></td>
                                             <td class="med"></td>
-                                            <td class="ca"></td>
+                                            <td class="city_alw"></td>
                                             <td class="ir"></td>
                                             <td class="ra"></td>
                                             <td class="wa"></td>
+                                            <td class="con_alw"></td>
                                             <td class="gross"></td>
                                             <td class="deductions"></td>
                                             <td class="net"></td>

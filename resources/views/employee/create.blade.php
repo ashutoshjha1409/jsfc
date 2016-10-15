@@ -30,10 +30,9 @@
                                     <!-- <label for="grade-selection">Grade</label> -->
                                     <select class="form-control" id="grade-selection" name="grade_selection">
                                         <option value="na">Select Grade</option>
-                                        <option value="1">Grade 1</option>
-                                        <option value="2">Grade 2</option>
-                                        <option value="3">Grade 3</option>
-                                        <option value="4">Grade 4</option>
+                                        <option value="manager">Manager</option>
+                                        <option value="grade_3">Grade 3</option>
+                                        <option value="grade_4">Grade 4</option>
                                     </select>
                                 </div>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -193,10 +193,11 @@ JSFC.pd.updateSalaryTable = function(data, ele){
 	ele.find('.hra').html(data['hra_amt']);
 	ele.find('.epf').html(data['epf_amt']);
 	ele.find('.med').html(data['med']);
-	ele.find('.ca').html(data['ca']);
+	ele.find('.city_alw').html(data['city_alw']);
 	ele.find('.ir').html(data['ir']);
 	ele.find('.ra').html(data['ra']);
 	ele.find('.wa').html(data['wa']);
+	ele.find('.con_alw').html(data['con_alw']);
 	ele.find('.gross').html(data['gross']);
 	ele.find('.deductions').html(data['deductions']);
 	ele.find('.net').html(data['net_pay']);
@@ -273,10 +274,11 @@ JSFC.clearPayDrawnTable = function(year){
 		$(this).find('.hra').html('');
 		$(this).find('.epf').html('');
 		$(this).find('.med').html('');
-		$(this).find('.ca').html('');
+		$(this).find('.city_alw').html('');
 		$(this).find('.ir').html('');
 		$(this).find('.ra').html('');
 		$(this).find('.wa').html('');
+		$(this).find('.con_alw').html('');
 		$(this).find('.gross').html('');
 		$(this).find('.deductions').html('');
 		$(this).find('.net').html('');

@@ -46,9 +46,9 @@ class SalaryController extends Controller
         $da = $request->da;    
 
         $sal = Salary::where('emp_id', $empId)
-                        ->where('year', $year)
-                        ->where('month', $month)
-                        ->first();
+                ->where('year', $year)
+                ->where('month', $month)
+                ->first();
         $emp = Employee::find($empId);
         $grade = $emp->grade;
         $hra = 0;
@@ -57,7 +57,7 @@ class SalaryController extends Controller
         $totalPay = round($bp + ($da * $bp)/100);
         $epf = 12;
         $med = 300;
-        $ca = 0;
+        $ca = 0; // For managers its zero
         // CALCULATE H.R.A
         if ($areaType == 0) {
             $hra = 10;
@@ -73,10 +73,10 @@ class SalaryController extends Controller
 
         // CALUCLATE C.A
         switch ($grade) {
-            case '3':
+            case 'grade_3':
                 $ca = 800 + (800 * $da)/100;
                 break;
-            case '4':
+            case 'grade_4':
                 $ca = 400 + (400 * $da)/100;
                 break;            
         }
