@@ -73,9 +73,9 @@ JSFC.addSalary = function(that){
 	var bp = el.closest('.month-row').find('input[name="bp"]').val();
 	var da = el.closest('.month-row').find('input[name="da"]').val();
 	var year = $('#year_selected').val();
-	var areaType = $('#payByMonth select[name="areaType"]').val();
+	var areaType = el.closest('.month-row').find('select[name="areaType"]').val();
 	var empId = $('#payByMonth input[name="user_id"]').val();
-	
+	console.log(areaType)
 	if (year == "na"){
 		$('#year_selected').focus();
 		$('#year_selected').tooltip('show')
@@ -140,7 +140,7 @@ JSFC.pd.addSalary = function(that){
 	var bp = el.closest('.month-row').find('input[name="bp"]').val();
 	var da = el.closest('.month-row').find('input[name="da"]').val();
 	var year = $('#year_selected').val();
-	var areaType = $('#payByMonth_pd select[name="areaType"]').val();
+	var areaType = el.closest('.month-row').find('select[name="areaType"]').val();
 	var empId = $('input[name="user_id"]').val();
 	
 	if (year == "na"){

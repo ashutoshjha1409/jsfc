@@ -38,7 +38,7 @@ class PayDrawnController extends Controller
 
         // CALCULATE H.R.A
         if ($areaType == 0) {
-            $hra = 7;
+            $hra = 7.5;
             $hraAmt = ($hra * $bp)/100;
             $area = false;
         } else {
