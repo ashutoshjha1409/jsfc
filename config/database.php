@@ -58,7 +58,7 @@ return [
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'jsfc_db'),
             'username' => env('DB_USERNAME', 'jsfc_jsr'),
-            'password' => env('DB_PASSWORD', 'whitehat'),
+            'password' => env('DB_PASSWORD', 'c9d314'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
