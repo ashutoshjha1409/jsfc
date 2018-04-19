@@ -182,12 +182,12 @@ class SalaryController extends Controller
         $data->diff = $diff;
 
         setlocale(LC_MONETARY, 'en_IN');
-        $netSalary = money_format('%!i', $diff->sum('admissable_pay'));
-        $netPayDrawn = money_format('%!i', $diff->sum('pay_drawn'));
+        $netSalary = $diff->sum('admissable_pay');//money_format(format, number)('%!i', $diff->sum('admissable_pay'));
+        $netPayDrawn = $diff->sum('pay_drawn');//money_format('%!i', $diff->sum('pay_drawn'));
         $netIncome = $diff->sum('admissable_pay') - $diff->sum('pay_drawn');
         $data->netSalary = $netSalary; 
         $data->netPayDrawn = $netPayDrawn; 
-        $data->netIncome = money_format('%!i', $netIncome);
+        $data->netIncome = $netIncome;//money_format('%!i', $netIncome);
         return $data;
     }
 }
