@@ -9,6 +9,14 @@ $(function(){
 });
 
 JSFC.Init = function(){
+	$.fn.superTable.defaults.columnCollapse = true;
+    $.fn.superTable.defaults.rowCollapse = true;
+	$('#admissable-table').superTable({
+		columnCollapsedClass : 'collapsedColumn',
+        columnExpandedClass : 'expandedColumn',
+        rowCollapsedClass : 'collapsedColumn',
+        rowExpandedClass : 'expandedColumn'
+	});
 	var empId = $('input[name="user_id"]').val();
 	$('#payByMonth .month-action').click(function(){
 		JSFC.addSalary(this);		

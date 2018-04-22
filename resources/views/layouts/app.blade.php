@@ -38,5 +38,6 @@
     <script src="/js/creative.js"></script> 
     <script src="/js/jsfc.js"></script> 
     <script src="/js/jquery.serialize-object.min.js"></script>
+    <script src="/js/jquery.super-table.min.js"></script> 
 </body>
 </html>

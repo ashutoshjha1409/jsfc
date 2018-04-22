@@ -51,3 +51,8 @@
 .panel-default>.panel-heading{
 	color: #eb3812;
 }
+#payByMonth{
+	width: 90vw;
+	overflow-x: auto;
+	white-space: nowrap;
+}

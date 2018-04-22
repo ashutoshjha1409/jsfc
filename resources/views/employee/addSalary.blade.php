@@ -84,58 +84,63 @@
                     <div class="row">
                         <div class="col-md-12">
                             <form id="payByMonth">
-                                <table class="table">
-                                   <tr>
-                                        <th>Month</th>
-                                        <th>Basic Pay</th>
-                                        <th>DA(%)</th>
-                                        <th>Area Type</th>
-                                        <th>Action</th>
-                                        <th>Total Pay</th>
-                                        <th>H.R.A</th>
-                                        <th>E.P.F</th>
-                                        <th>Medical</th>
-                                        <th>C.A</th>
-                                        <th>Gross</th>
-                                        <th>Deductions</th>
-                                        <th>Net Pay</th>
-                                   </tr>
-                                    @foreach($data->months as $mon)
-                                        <tr class="month-row" id="{{ $mon['id'] }}">
-                                            <td width="120px" class="month">
-                                                {{ $mon['name'] }}
-                                            </td>
-                                            <td width="120px">
-                                                <div class="input-group">
-                                                  <input type="text" class="form-control" placeholder="Basic pay" aria-describedby="sizing-addon2" name="bp" required>
-                                                </div>
-                                            </td>
-                                            <td width="80px">
-                                                <div class="input-group">
-                                                  <input type="text" class="form-control" placeholder="D.A" aria-describedby="sizing-addon2" name="da" value="" data-month="{{$mon['id']}}">
-                                                </div>
-                                            </td>
-                                            <td width="80px">
-                                                <div class="input-group">
-                                                  <select name="areaType" >
-                                                      <option value="0">Rural</option>
-                                                      <option value="1">Urban</option>
-                                                  </select>
-                                                </div>
-                                            </td>
-                                            <td width="50px" style="text-align: 'right'">
-                                                <button type="button" class="btn btn-primary month-action" data-month="{{$mon['id']}}"><i class="fa fa-check" aria-hidden="true"></i></button>
-                                            </td>
-                                            <td class="total_pay"></td>
-                                            <td class="hra"></td>
-                                            <td class="epf"></td>
-                                            <td class="med"></td>
-                                            <td class="ca"></td>
-                                            <td class="gross"></td>
-                                            <td class="deductions"></td>
-                                            <td class="net"></td>
-                                        </tr>
-                                    @endforeach
+                                <table class="table" id="admissable-table" data-st-id="ST_admissable-table">
+                                    <thead>
+                                       <tr>
+                                            <th>Month</th>
+                                            <th>Basic Pay</th>
+                                            <th>DA(%)</th>
+                                            <th>Area Type</th>
+                                            <th>Action</th>
+                                            <th>Total Pay</th>
+                                            <th>H.R.A</th>
+                                            <th>E.P.F</th>
+                                            <th>Medical</th>
+                                            <th>C.A</th>
+                                            <th>Gross</th>
+                                            <th>Deductions</th>
+                                            <th>Net Pay</th>
+                                       </tr> 
+                                    </thead>
+                                    <tbody>
+                                        @foreach($data->months as $mon)
+                                            <tr class="month-row rowHideable" id="{{ $mon['id'] }}">
+                                                <td width="120px" class="month">
+                                                    {{ $mon['name'] }}
+                                                </td>
+                                                <td width="120px">
+                                                    <div class="input-group">
+                                                      <input type="text" class="form-control" placeholder="Basic pay" aria-describedby="sizing-addon2" name="bp" required>
+                                                    </div>
+                                                </td>
+                                                <td width="80px">
+                                                    <div class="input-group">
+                                                      <input type="text" class="form-control" placeholder="D.A" aria-describedby="sizing-addon2" name="da" value="" data-month="{{$mon['id']}}">
+                                                    </div>
+                                                </td>
+                                                <td width="80px">
+                                                    <div class="input-group">
+                                                      <select name="areaType" >
+                                                          <option value="0">Rural</option>
+                                                          <option value="1">Urban</option>
+                                                      </select>
+                                                    </div>
+                                                </td>
+                                                <td width="50px" style="text-align: 'right'">
+                                                    <button type="button" class="btn btn-primary month-action" data-month="{{$mon['id']}}"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                </td>
+                                                <td class="columnHideable total_pay"></td>
+                                                <td class="columnHideable hra"></td>
+                                                <td class="columnHideable epf"></td>
+                                                <td class="columnHideable med"></td>
+                                                <td class="columnHideable ca"></td>
+                                                <td class="columnHideable gross"></td>
+                                                <td class="columnHideable deductions"></td>
+                                                <td class="columnHideable net"></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>                                 
+                                    
                                </table> 
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name="user_id" value="{{$data->id}}">
