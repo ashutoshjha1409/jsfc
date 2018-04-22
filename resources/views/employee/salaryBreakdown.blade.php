@@ -8,25 +8,25 @@
                 <div class="panel-heading">Basic Details</div>
 
                 <div class="panel-body">
-                    <div class="row">
+                    <div class="row jhj">
                         <div class="col-lg-3">
-                            <div><b>Name</b></div>
+                            <b>Name</b>
                         </div>
-                        <div class="col-lg-9">{{$data->name}}</div>
+                        <d`iv class="col-lg-9">{{$data->name}}</div>
                         <div class="col-lg-3">
-                            <div><b>Designation</b></div>
+                            <b>Designation</b>
                         </div>
                         <div class="col-lg-9">{{$data->designation}}</div>
                         <div class="col-lg-3">
-                            <div><b>Location</b></div>
+                            <b>Location</b>
                         </div>
                         <div class="col-lg-9">{{$data->location}}</div>
                         <div class="col-lg-3">
-                            <div><b>Email</b></div>
+                            <b>Email</b>
                         </div>
                         <div class="col-lg-9">{{$data->email}}</div>
                         <div class="col-lg-3">
-                            <div><b>Area Type</b></div>
+                            <b>Area Type</b>
                         </div>
                         <div class="col-lg-9">{{$data->areaType}}</div>
                     </div>
@@ -81,8 +81,3 @@
     </div>
 </div>
 @endsection
-<script type="text/javascript">
-    // $(function(){
-    //     JSFC.viewSalary();
-    // });
-</script>

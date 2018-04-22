@@ -51,8 +51,25 @@
 .panel-default>.panel-heading{
 	color: #eb3812;
 }
-#payByMonth{
-	width: 90vw;
-	overflow-x: auto;
+#payByMonth table{
+	width: 100vw;	
 	white-space: nowrap;
+}
+.table-row{
+	width: 80vw;
+	overflow-x: auto;
+	margin: 0 auto;
+}
+.table > tbody > tr >td{
+	min-width: 120px;
+	max-width: 120px;
+}
+
+@media only screen and (max-width: 600px) {
+	.table-row{
+		width: 100vw;
+	}
+	.well{
+		padding: 20px 0;		
+	}
 }

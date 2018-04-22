@@ -6,7 +6,18 @@ var JSFC = {
 
 $(function(){
 	JSFC.Init();
+	JSFC.onDetailPageLoad();
 });
+
+JSFC.onDetailPageLoad = function(){
+	var year = "2006";
+	var empId = $('input[name="user_id"]').val();
+	$('#year_selected').val(year);
+	JSFC.clearAdmissableTable(year);
+	JSFC.clearPayDrawnTable(year);
+	JSFC.clearDifferenceTable();
+	JSFC.fetchStoredSalary(year, empId);
+}
 
 JSFC.Init = function(){
 	$.fn.superTable.defaults.columnCollapse = true;
@@ -212,6 +223,7 @@ JSFC.pd.updateSalaryTable = function(data, ele){
 }
 
 JSFC.fetchStoredSalary = function(year, empId){
+	$('.loader-container').show();
 	$.ajax({
         url : '/salary/view',
         type : 'get',
@@ -242,6 +254,9 @@ JSFC.fetchStoredSalary = function(year, empId){
         error: function(data){
 
         },
+        complete: function(jqXHR){
+        	$('.loader-container').hide();
+        }
     });
 }
 

@@ -2,66 +2,72 @@
 @include('/layouts/navigation')
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Basic Details</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Basic Details</div>
 
-                <div class="panel-body">
+        <div class="panel-body">
+            <div class="row jshdsd">
+                <div class="col-sm-12 col-md-6">
                     <div class="row">
-                        <div class="col-md-7">
-                            <div class="col-lg-3">
-                                <div><b>Name:</b></div>
-                            </div>
-                            <div class="col-lg-9">{{$data->name}}</div>
-                            <div class="col-lg-3">
-                                <div><b>Designation:</b></div>
-                            </div>
-                            <div class="col-lg-9">{{$data->designation}}</div>
-                            <div class="col-lg-3">
-                                <div><b>Location:</b></div>
-                            </div>
-                            <div class="col-lg-9">{{$data->location}}</div>
-                            <div class="col-lg-3">
-                                <div><b>Email:</b></div>
-                            </div>
-                            <div class="col-lg-9">{{$data->email}}</div>
+                        <div class="col-sm-3">
+                            <b>Name:</b>
                         </div>
-                        <div class="col-md-5">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div>
-                                        <label for="year_selected">Year: &nbsp;</label>                                
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <select id="year_selected" name="year" class="form-control" data-toggle="tooltip" title="Select year" data-placement="right">
-                                        <option value="na">Select a year</option>
-                                        <script type="text/javascript">
-                                            var dt = new Date();
-                                            var yr = dt.getFullYear();
-                                            for (var i = 2006; i < yr+1; i++) {
-                                                document.write('<option value="'+i+'">'+i+'</option>');
-                                            }
-                                        </script>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div><b>Admissable Pay:</b></div>
-                                </div>
-                                <div class="col-lg-6"><span id="total_admissable_pay">No result</span></div>
-                                <div class="col-lg-6">
-                                    <div><b>Pay Drawn:</b></div>
-                                </div>
-                                <div class="col-lg-6"><span id="total_pay_drawn">No result</span></div>
-                                <div class="col-lg-6">
-                                    <div><b>Net Income:</b></div>
-                                </div>
-                                <div class="col-lg-6"><span id="net_income">No Result</span></div>
-                            </div>
+                        <div class="col-sm-9">{{$data->name}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <b>Designation:</b>
                         </div>
+                        <div class="col-sm-9">{{$data->designation}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <b>Location:</b>
+                        </div>
+                        <div class="col-sm-9">{{$data->location}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <b>Email:</b>
+                        </div>
+                        <div class="col-sm-9">{{$data->email}}</div>
+                    </div>                            
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="year_selected">Year: &nbsp;</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <select id="year_selected" name="year" class="form-control" data-toggle="tooltip" title="Select year" data-placement="right">
+                                <option value="na">Select a year</option>
+                                <script type="text/javascript">
+                                    var dt = new Date();
+                                    var yr = dt.getFullYear();
+                                    for (var i = 2006; i < yr+1; i++) {
+                                        document.write('<option value="'+i+'">'+i+'</option>');
+                                    }
+                                </script>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <b>Admissable Pay:</b>
+                        </div>
+                        <div class="col-sm-6"><span id="total_admissable_pay">No result</span></div>
+                    </div>
+                    <div class="row">    
+                        <div class="col-sm-6">
+                            <b>Pay Drawn:</b>
+                        </div>
+                        <div class="col-sm-6"><span id="total_pay_drawn">No result</span></div>
+                    </div>
+                    <div class="row"> 
+                        <div class="col-sm-6">
+                            <b>Net Income:</b>
+                        </div>
+                        <div class="col-sm-6"><span id="net_income">No Result</span></div>
                     </div>
                 </div>
             </div>
@@ -69,7 +75,7 @@
     </div>
 </div>
 <div class="well">
-    <div class="row">
+    <div class="row table-row">
         <div class="col-md-12">
   <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
@@ -105,20 +111,20 @@
                                     <tbody>
                                         @foreach($data->months as $mon)
                                             <tr class="month-row rowHideable" id="{{ $mon['id'] }}">
-                                                <td width="120px" class="month">
+                                                <td class="month">
                                                     {{ $mon['name'] }}
                                                 </td>
-                                                <td width="120px">
+                                                <td>
                                                     <div class="input-group">
                                                       <input type="text" class="form-control" placeholder="Basic pay" aria-describedby="sizing-addon2" name="bp" required>
                                                     </div>
                                                 </td>
-                                                <td width="80px">
+                                                <td>
                                                     <div class="input-group">
                                                       <input type="text" class="form-control" placeholder="D.A" aria-describedby="sizing-addon2" name="da" value="" data-month="{{$mon['id']}}">
                                                     </div>
                                                 </td>
-                                                <td width="80px">
+                                                <td>
                                                     <div class="input-group">
                                                       <select name="areaType" >
                                                           <option value="0">Rural</option>
@@ -126,7 +132,7 @@
                                                       </select>
                                                     </div>
                                                 </td>
-                                                <td width="50px" style="text-align: 'right'">
+                                                <td>
                                                     <button type="button" class="btn btn-primary month-action" data-month="{{$mon['id']}}"><i class="fa fa-check" aria-hidden="true"></i></button>
                                                 </td>
                                                 <td class="columnHideable total_pay"></td>

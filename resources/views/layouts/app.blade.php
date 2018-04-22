@@ -16,6 +16,7 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" type="text/css" href="/css/creative.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/spinner.css">
     <style>
         body {
             font-family: 'Lato';
@@ -24,10 +25,13 @@
         .fa-btn {
             margin-right: 6px;
         }
+
     </style>
 </head>
 <body id="app-layout">
-
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>  
     @yield('content')
 
     <!-- JavaScripts -->
