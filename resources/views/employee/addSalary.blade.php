@@ -6,33 +6,58 @@
         <div class="panel-heading">Basic Details</div>
 
         <div class="panel-body">
-            <div class="row jshdsd">
-                <div class="col-sm-12 col-md-6">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <b>Name:</b>
-                        </div>
-                        <div class="col-sm-9">{{$data->name}}</div>
+            <div class="row">
+                <div class="col-sm-6 details-tile-left">
+                    <div class="field">
+                        <div class="label">Name</div>
+                        <div class="value">{{$data->name}}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <b>Designation:</b>
-                        </div>
-                        <div class="col-sm-9">{{$data->designation}}</div>
+                    <div class="field">
+                        <div class="label">Designation</div>
+                        <div class="value">{{$data->designation}}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <b>Location:</b>
-                        </div>
-                        <div class="col-sm-9">{{$data->location}}</div>
+                    <div class="field">
+                        <div class="label">Location</div>
+                        <div class="value">{{$data->location}}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <b>Email:</b>
-                        </div>
-                        <div class="col-sm-9">{{$data->email}}</div>
-                    </div>                            
+                    <div class="field">
+                        <div class="label">Email</div>
+                        <div class="value">{{$data->email}}</div>
+                    </div>
                 </div>
+                <div class="col-sm-6 details-tile-right">
+                    <div class="field">
+                        <div class="label">Year</div>
+                        <div class="value">
+                            <select id="year_selected" name="year" class="form-control" data-toggle="tooltip" title="Select year" data-placement="right">
+                                <option value="na">Select a year</option>
+                                <script type="text/javascript">
+                                    var dt = new Date();
+                                    var yr = dt.getFullYear();
+                                    for (var i = 2006; i < yr+1; i++) {
+                                        document.write('<option value="'+i+'">'+i+'</option>');
+                                    }
+                                </script>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="label">Admissable Pay</div>
+                        <div class="value"><span id="total_pay_drawn">No Result</span></div>
+                    </div>
+                    <div class="field">
+                        <div class="label">Pay Drawn</div>
+                        <div class="value"><span id="total_pay_drawn">No Result</span></div>
+                    </div>
+                    <div class="field">
+                        <div class="label">Net Income</div>
+                        <div class="value"><span id="net_income">No Result</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--<div class="row">
+                
                 <div class="col-sm-12 col-md-6">
                     <div class="row">
                         <div class="col-sm-6">
@@ -71,6 +96,7 @@
                     </div>
                 </div>
             </div>
+            -->
         </div>
     </div>
 </div>

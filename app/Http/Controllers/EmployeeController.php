@@ -126,9 +126,11 @@ class EmployeeController extends Controller
 
     public function getDifference(Request $request){
         $emp = Employee::find($request->emp_id);
-        $salary = $emp->salary;
-
-        var_dump($request->emp_id);
+        $salary = $emp->salary;        
         return $salary;
+    }
+
+    public function downloadPdf(){
+        return view('employee.salaryBreakdown', compact('data'));
     }
 }

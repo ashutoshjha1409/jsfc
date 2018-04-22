@@ -20,9 +20,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', 'EmployeeController@index');	
+Route::get('/employees', 'EmployeeController@index');	
 Route::get('employee/create', 'EmployeeController@create');
 Route::get('employee/{id}/salary', 'EmployeeController@addSalary');
+Route::get('employee/{id}/download', 'EmployeeController@downloadPdf');
 /*Route::get('employee/{id}/salary/view', 'EmployeeController@viewSalary');*/
 
 /* ************* API ****************** */
@@ -30,5 +31,9 @@ Route::post('employee/add', 'EmployeeController@store');
 Route::post('salary/add', 'SalaryController@store');
 Route::get('salary/view', 'SalaryController@view');
 Route::post('paydrawn/add', 'PayDrawnController@store');
+Route::get('/invoice', function(){
+	return view('employee.summary');
+});
+Route::get('/download/pdf', 'PdfController@download_pdf');
 
 
