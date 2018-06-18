@@ -34,13 +34,13 @@
                             </select>
                         </div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        
+                         <button type="submit" class="btn btn-block btn-primary">Next</button>
                     </form>                    
                 </div>                    
             </div>
         </div>
         <div class="panel-footer">
-            <button type="submit" class="btn btn-block btn-primary">Next</button>
+           
         </div>
     </div>
 </div>
