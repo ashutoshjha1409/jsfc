@@ -43,7 +43,7 @@
                     </div>
                     <div class="field">
                         <div class="label">Admissable Pay</div>
-                        <div class="value"><span id="total_pay_drawn">No Result</span></div>
+                        <div class="value"><span id="total_admissable_pay">No Result</span></div>
                     </div>
                     <div class="field">
                         <div class="label">Pay Drawn</div>
